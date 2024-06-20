@@ -8,7 +8,6 @@ const currentLocation = function () {
   window.navigator.geolocation.getCurrentPosition(
     (res) => {
       const { latitude, longitude } = res.coords;
-
       updateWeather(`lat=${latitude}`, `lon=${longitude}`);
     },
     (err) => {
@@ -32,19 +31,23 @@ const routes = new Map([
 
 const checkHash = function () {
   const requestURL = window.location.hash.slice(1);
-
   const [route, query] = requestURL.includes
     ? requestURL.split("?")
     : [requestURL];
+  const routeFunction = routes.get(route);
 
-  routes.get(route) ? routes.get(route)(query) : error404();
+  if (routeFunction) {
+    routeFunction(query);
+  } else {
+    error404();
+  }
 };
 
 window.addEventListener("hashchange", checkHash);
 
 window.addEventListener("load", function () {
   if (!window.location.hash) {
-    window.location.hash = "#/current-location";
+    window.location.hash = "#/weather?lat=-6.1753942&lon=106.827183";
   } else {
     checkHash();
   }
