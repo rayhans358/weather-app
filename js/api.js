@@ -1,6 +1,8 @@
 "use strict";
 
-const api_key = "f8afc92f54fe152a40ba423cacd87543";
+import { weather_api_key } from "./weather.js";
+const apiKey = weather_api_key;
+console.log(apiKey, "api key");
 
 /**
  * Fetch data from server
@@ -9,7 +11,7 @@ const api_key = "f8afc92f54fe152a40ba423cacd87543";
  */
 
 export const fetchData = function (URL, callback) {
-  fetch(`${URL}&appid=${api_key}`)
+  fetch(`${URL}&appid=${apiKey}`)
     .then((res) => res.json())
     .then((data) => callback(data));
 };
