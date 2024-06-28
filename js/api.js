@@ -1,8 +1,5 @@
 "use strict";
-
-// import { weather_api_key } from "./weather.js";
-require("dotenv").config();
-const apiKey = process.env.WEATHER_API_KEY;
+const apiKey = "f8afc92f54fe152a40ba423cacd87543";
 
 /**
  * Fetch data from server
