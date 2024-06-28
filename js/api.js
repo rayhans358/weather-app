@@ -1,8 +1,8 @@
 "use strict";
 
-import { weather_api_key } from "./weather.js";
-const apiKey = weather_api_key;
-console.log(apiKey, "api key");
+// import { weather_api_key } from "./weather.js";
+require("dotenv").config();
+const apiKey = process.env.WEATHER_API_KEY;
 
 /**
  * Fetch data from server
