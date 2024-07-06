@@ -10,7 +10,10 @@ const apiKey = "f8afc92f54fe152a40ba423cacd87543";
 export const fetchData = function (URL, callback) {
   fetch(`${URL}&appid=${apiKey}`)
     .then((res) => res.json())
-    .then((data) => callback(data));
+    .then((data) => {
+      console.log(data, "data");
+      callback(data);
+    });
 };
 
 export const url = {

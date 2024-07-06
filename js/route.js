@@ -2,7 +2,7 @@
 
 import { updateWeather, error404 } from "./app.js";
 
-const defaultLocation = "#/weather?lat=-6.1753942&lon=106.827183";
+const defaultLocation = "#/weather?lat=-0.0226903&lon=109.3447488";
 
 const currentLocation = function () {
   window.navigator.geolocation.getCurrentPosition(
@@ -22,7 +22,8 @@ const currentLocation = function () {
  */
 const searchedLocation = (query) => updateWeather(...query.split("&"));
 
-// updateWeather(lat=-6.1753942, lon=106.827183)
+// updateWeather(lat=-0.0226903, lon=109.3447488)
+// lat: -0.0226903, lon: 109.3447488
 
 const routes = new Map([
   [["/current-location", currentLocation]],
@@ -47,7 +48,7 @@ window.addEventListener("hashchange", checkHash);
 
 window.addEventListener("load", function () {
   if (!window.location.hash) {
-    window.location.hash = "#/weather?lat=-6.1753942&lon=106.827183";
+    window.location.hash = "#/weather?lat=-0.0226903&lon=109.3447488";
   } else {
     checkHash();
   }
